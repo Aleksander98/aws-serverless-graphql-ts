@@ -43,6 +43,12 @@ Resources:
             Version: 1.0.0
           DataSource: Posts
           CodeUri: ./build/getPost.js
+        deletePost:
+          Runtime:
+            Name: APPSYNC_JS
+            Version: 1.0.0
+          DataSource: Posts
+          CodeUri: ./build/deletePost.js
       Resolvers:
         Query:
           getPost:
@@ -58,6 +64,12 @@ Resources:
               Version: 1.0.0
             Pipeline:
               - createPost
+          deletePost:
+            Runtime:
+              Name: APPSYNC_JS
+              Version: 1.0.0
+            Pipeline:
+              - deletePost
 Outputs:
   PostsGraphQLApi:
     Description: PostsGraphQLApi endpoint URL for Prod environment

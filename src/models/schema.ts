@@ -26,6 +26,7 @@ export type Scalars = {
 export type Mutation = {
   __typename?: 'Mutation';
   addPost: Post;
+  deletePost?: Maybe<Post>;
 };
 
 
@@ -33,6 +34,11 @@ export type MutationAddPostArgs = {
   author: Scalars['String']['input'];
   content: Scalars['String']['input'];
   title: Scalars['String']['input'];
+};
+
+
+export type MutationDeletePostArgs = {
+  id: Scalars['ID']['input'];
 };
 
 export type Post = {

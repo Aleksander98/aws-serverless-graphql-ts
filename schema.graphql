@@ -9,6 +9,7 @@ type Query {
 
 type Mutation {
   addPost(author: String!, title: String!, content: String!): Post!
+  deletePost(id: ID!): Post
 }
 
 type Post {
