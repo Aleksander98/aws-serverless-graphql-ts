@@ -1,6 +1,7 @@
 schema {
   query: Query
   mutation: Mutation
+  subscription: Subscription
 }
 
 type Query {
@@ -11,6 +12,10 @@ type Query {
 type Mutation {
   addPost(author: String!, title: String!, content: String!): Post!
   deletePost(id: ID!): Post
+}
+
+type Subscription {
+  onPostAdded: Post @aws_subscribe(mutations: ["addPost"])
 }
 
 type Post {

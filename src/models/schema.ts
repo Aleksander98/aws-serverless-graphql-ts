@@ -70,3 +70,8 @@ export type QueryGetPostArgs = {
 export type QueryGetPostsArgs = {
   pageToken?: InputMaybe<Scalars['String']['input']>;
 };
+
+export type Subscription = {
+  __typename?: 'Subscription';
+  onPostAdded?: Maybe<Post>;
+};
