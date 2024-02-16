@@ -1,0 +1,65 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  aws-serverless-graphql-ts
+
+  Sample GraphQL API built with TypeScript and AWS SAM
+
+Globals:
+  Function:
+    LoggingConfig:
+      LogFormat: JSON
+
+Resources:
+  PostsTable:
+    Type: AWS::Serverless::SimpleTable
+
+  PostsGraphQLApi:
+    Type: AWS::Serverless::GraphQLApi
+    Properties:
+      SchemaUri: ./schema.graphql
+      Auth:
+        Type: API_KEY
+      ApiKeys:
+        DefaultApiKey:
+          Description: Default api key
+      DataSources:
+        DynamoDb:
+          Posts:
+            TableName: !Ref PostsTable
+            TableArn: !GetAtt PostsTable.Arn
+      Functions:
+        createPost:
+          Runtime:
+            Name: APPSYNC_JS
+            Version: 1.0.0
+          DataSource: Posts
+          CodeUri: ./build/createPost.js
+        getPost:
+          Runtime:
+            Name: APPSYNC_JS
+            Version: 1.0.0
+          DataSource: Posts
+          CodeUri: ./build/getPost.js
+      Resolvers:
+        Query:
+          getPost:
+            Runtime:
+              Name: APPSYNC_JS
+              Version: 1.0.0
+            Pipeline:
+              - getPost
+        Mutation:
+          addPost:
+            Runtime:
+              Name: APPSYNC_JS
+              Version: 1.0.0
+            Pipeline:
+              - createPost
+Outputs:
+  PostsGraphQLApi:
+    Description: PostsGraphQLApi endpoint URL for Prod environment
+    Value: !GetAtt PostsGraphQLApi.GraphQLUrl
+  PostsGraphQLApiDefaultApiKey:
+    Description: API Key for PostsGraphQLApi
+    Value: !GetAtt PostsGraphQLApiDefaultApiKey.ApiKey
