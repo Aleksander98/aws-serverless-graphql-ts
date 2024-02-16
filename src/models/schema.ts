@@ -49,12 +49,24 @@ export type Post = {
   title?: Maybe<Scalars['String']['output']>;
 };
 
+export type PostsResult = {
+  __typename?: 'PostsResult';
+  items: Array<Post>;
+  nextToken?: Maybe<Scalars['String']['output']>;
+};
+
 export type Query = {
   __typename?: 'Query';
   getPost?: Maybe<Post>;
+  getPosts: PostsResult;
 };
 
 
 export type QueryGetPostArgs = {
   id: Scalars['String']['input'];
+};
+
+
+export type QueryGetPostsArgs = {
+  pageToken?: InputMaybe<Scalars['String']['input']>;
 };

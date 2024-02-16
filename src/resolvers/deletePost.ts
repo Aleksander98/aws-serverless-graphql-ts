@@ -1,4 +1,5 @@
 import { Context, DynamoDBDeleteItemRequest, util } from '@aws-appsync/utils';
+
 import { MutationDeletePostArgs } from '../models/schema';
 
 export function request(

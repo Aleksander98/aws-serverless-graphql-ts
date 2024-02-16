@@ -5,6 +5,7 @@ schema {
 
 type Query {
   getPost(id: String!): Post
+  getPosts(pageToken: String): PostsResult!
 }
 
 type Mutation {
@@ -17,4 +18,9 @@ type Post {
   author: String
   title: String
   content: String
+}
+
+type PostsResult {
+  items: [Post!]!
+  nextToken: String
 }

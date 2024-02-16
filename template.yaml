@@ -43,6 +43,12 @@ Resources:
             Version: 1.0.0
           DataSource: Posts
           CodeUri: ./build/getPost.js
+        getPosts:
+          Runtime:
+            Name: APPSYNC_JS
+            Version: 1.0.0
+          DataSource: Posts
+          CodeUri: ./build/getPosts.js
         deletePost:
           Runtime:
             Name: APPSYNC_JS
@@ -57,6 +63,12 @@ Resources:
               Version: 1.0.0
             Pipeline:
               - getPost
+          getPosts:
+            Runtime:
+              Name: APPSYNC_JS
+              Version: 1.0.0
+            Pipeline:
+              - getPosts
         Mutation:
           addPost:
             Runtime:
