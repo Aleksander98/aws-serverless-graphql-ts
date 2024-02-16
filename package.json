@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Sample GraphQL API built with TypeScript and AWS SAM",
   "scripts": {
+    "build": "sh ./build.sh",
     "build-schema": "graphql-codegen",
     "lint": "eslint 'src/**/*.ts' --quiet --fix"
   },
