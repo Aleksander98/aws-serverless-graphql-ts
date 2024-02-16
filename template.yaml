@@ -18,6 +18,8 @@ Resources:
     Type: AWS::Serverless::GraphQLApi
     Properties:
       SchemaUri: ./schema.graphql
+      Logging:
+        FieldLogLevel: ERROR
       Auth:
         Type: API_KEY
       ApiKeys:
