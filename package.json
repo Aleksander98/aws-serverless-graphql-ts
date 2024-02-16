@@ -1,0 +1,25 @@
+{
+  "name": "aws-serverless-graphql-ts",
+  "version": "1.0.0",
+  "description": "Sample GraphQL API built with TypeScript and AWS SAM",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aleksander98/aws-serverless-graphql-ts.git"
+  },
+  "keywords": [
+    "AWS",
+    "SAM",
+    "serverless",
+    "TypeScript",
+    "ts",
+    "graphql",
+    "api"
+  ],
+  "author": "Aleksander Woźnica",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Aleksander98/aws-serverless-graphql-ts/issues"
+  },
+  "homepage": "https://github.com/Aleksander98/aws-serverless-graphql-ts#readme"
+}
