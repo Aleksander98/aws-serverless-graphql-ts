@@ -1,9 +1,9 @@
-import { CodegenConfig } from "@graphql-codegen/cli";
+import { CodegenConfig } from '@graphql-codegen/cli';
 
 const config: CodegenConfig = {
   overwrite: true,
   schema: [
-    "schema.graphql",
+    'schema.graphql',
     `
 scalar AWSDate
 scalar AWSTime
@@ -18,20 +18,20 @@ scalar AWSIPAddress
   ],
   config: {
     scalars: {
-      AWSJSON: "string",
-      AWSDate: "string",
-      AWSTime: "string",
-      AWSDateTime: "string",
-      AWSTimestamp: "number",
-      AWSEmail: "string",
-      AWSURL: "string",
-      AWSPhone: "string",
-      AWSIPAddress: "string",
+      AWSJSON: 'string',
+      AWSDate: 'string',
+      AWSTime: 'string',
+      AWSDateTime: 'string',
+      AWSTimestamp: 'number',
+      AWSEmail: 'string',
+      AWSURL: 'string',
+      AWSPhone: 'string',
+      AWSIPAddress: 'string',
     },
   },
   generates: {
-    "src/models/schema.ts": {
-      plugins: ["typescript"],
+    'src/models/schema.ts': {
+      plugins: ['typescript'],
     },
   },
 };

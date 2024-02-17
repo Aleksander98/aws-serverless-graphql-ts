@@ -1,9 +1,5 @@
 import { Context, DynamoDBScanRequest } from '@aws-appsync/utils';
-import {
-  QueryGetPostArgs,
-  QueryGetPostsArgs,
-  PostsResult,
-} from '../models/schema';
+import { QueryGetPostsArgs, PostsResult } from '../models/schema';
 
 const DEFAULT_LIMIT = 4;
 
@@ -16,7 +12,7 @@ export function request(ctx: Context<QueryGetPostsArgs>): DynamoDBScanRequest {
 }
 
 export function response(
-  ctx: Context<QueryGetPostArgs, object, object, object, PostsResult>,
+  ctx: Context<QueryGetPostsArgs, object, object, object, PostsResult>,
 ) {
   return ctx.result;
 }
